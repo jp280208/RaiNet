@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RainNet - Projeto</title>
+    <title>RainNet</title>
     
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -39,11 +39,12 @@
         .info-card h2 { font-weight: 700; color: var(--primary); margin-bottom: 1.5rem; }
         .info-card p, .info-card li { font-size: 1.1rem; color: #555; line-height: 1.7; }
 
+        /* NOVO ESTILO ADICIONADO AQUI */
         .info-image {
             width: 100%;
             height: 100%;
-            min-height: 450px;
-            object-fit: cover;
+            min-height: 450px; /* Define uma altura mínima para a imagem */
+            object-fit: cover; /* Garante que a imagem cubra o espaço sem distorcer */
             border-radius: 12px;
             box-shadow: 0 8px 25px rgba(0,0,0,0.1);
         }
@@ -80,94 +81,130 @@
     
     <header class="top-header-sobre">
         <div class="container">
-            <nav class="navbar-sobre">
-                <div class="logo">
-                    <a href="index.html">
-                        <img src="img4.png" alt="Logo RainNet">
-                    </a>
-                </div>
-                <ul class="nav-links">
-                    <li><a href="index.html">Início</a></li>
-                    <li><a href="sobre.html">Sobre</a></li>
-                    <li><a href="index.html#map-section">Mapa</a></li>
-                    <li><a href="projeto.html" class="active">Projeto</a></li>
-                </ul>
-            </nav>
-            <div class="header-title-wrapper">
-                <h1>O Projeto Rainet: Detalhes e Ferramentas</h1>
-            </div>
+           <nav class="navbar-sobre">
+    <div class="logo">
+        <a href="index.html"> <img src="img4.png" alt="Logo RainNet">
+        </a>
+    </div>
+    <ul class="nav-links">
+        <li><a href="index.html">Início</a></li>            <li><a href="sobre.html">Sobre</a></li>
+        <li><a href="index.html#map-section">Mapa</a></li> <li><a href="projeto.html" class="active">Projeto</a></li> </ul>
+</nav>
+            <div class="header-title-wrapper"> <h1>Detalhes do Projeto</h1> </div>
         </div>
     </header>
 
-    <main class="container my-5">
-        <section id="detalhes" class="row mb-5">
-            <div class="col-lg-6 mb-4 mb-lg-0">
-                <div class="info-card">
-                    <h2>Visão Geral do Desenvolvimento</h2>
-                    <p>O Rainet é um projeto desenvolvido como parte da Feira de Conhecimento, com o objetivo de demonstrar como a tecnologia pode ser aplicada à gestão de recursos hídricos. Utilizamos uma abordagem de código aberto e dados públicos para criar uma plataforma transparente e acessível à comunidade.</p>
-                    <ul class="list-unstyled mt-4">
-                        <li><i class="fas fa-check-circle text-primary me-2"></i> Tecnologia: HTML, CSS, JavaScript (Bootstrap e Leaflet)</li>
-                        <li><i class="fas fa-check-circle text-primary me-2"></i> Objetivo: Conscientização e ferramenta de auxílio na gestão da água.</li>
-                        <li><i class="fas fa-check-circle text-primary me-2"></i> Licença: Código aberto para contribuições da comunidade.</li>
-                    </ul>
+    <main class="container my-5 py-5">
+        <section id="arquitetura" class="mb-5 pb-5">
+            <h2 class="section-title">Como Funciona o RainNet?</h2>
+            <div class="row align-items-center g-5">
+                <div class="col-lg-6">
+                    <div class="info-card">
+                        <h2>Arquitetura Inteligente</h2>
+                        <p>O RainNet opera em um ciclo contínuo e automatizado. A água da chuva é coletada pelas calhas e direcionada para um primeiro filtro que remove folhas e detritos maiores. Em seguida, passa por um sistema de filtragem mais fino antes de ser armazenada no reservatório principal. A automação entra em ação para gerenciar o uso dessa água, garantindo eficiência máxima.</p>
+                    </div>
                 </div>
-            </div>
-            <div class="col-lg-6">
-                <img src="https://images.unsplash.com/photo-1549495914-256d953163aa?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Mãos a trabalhar com código num computador" class="info-image">
+                <div class="col-lg-6">
+                     <img src="filtro.png" alt="Arquitetura do Sistema RainNet" class="info-image">
+                </div>
             </div>
         </section>
 
-        <section id="maquete-virtual" class="row mb-5">
-            <h2 class="section-title">Maquete Virtual de Captação de Água</h2>
-            <div class="col-lg-12">
-                <div class="maquete-container">
-                    <div class="row align-items-center">
-                        <div class="col-md-6 mb-4 mb-md-0">
-                            <img src="https://images.unsplash.com/photo-1547472911-75550a116b4e?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Maquete de sistema de captação de água da chuva" class="maquete-img">
+        <section id="maquete-visual" class="my-5 py-5">
+            <h2 class="section-title">Do Esboço à Realidade</h2>
+            <div class="maquete-container">
+                <div class="row align-items-center text-center g-4">
+                    <div class="col-lg-5">
+                        <img src="esboço.png" alt="Esboço da Maquete" class="maquete-img">
+                        <h4 class="maquete-title mt-3">1. O Planejamento</h4>
+                        <p class="maquete-description">Aqui começou nossa jornada: o esboço inicial que guiou a construção de cada componente do sistema de filtragem e armazenamento.</p>
+                    </div>
+                    <div class="col-lg-2 d-none d-lg-block"> <i class="fas fa-arrow-right fa-3x" style="color: var(--primary);"></i> </div>
+                    <div class="col-lg-2 d-lg-none"> <i class="fas fa-arrow-down fa-3x" style="color: var(--primary);"></i> </div>
+                    <div class="col-lg-5">
+                        <img src="maquete pronta.png" alt="Maquete Pronta" class="maquete-img">
+                        <h4 class="maquete-title mt-3">2. O Resultado Final</h4>
+                        <p class="maquete-description">A maquete concluída, demonstrando de forma prática o fluxo da água, desde a captação até o reservatório final, pronta para o reuso.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="calculadora-economia" class="my-5 py-5">
+            <div class="info-card">
+                <h2 class="section-title">Calcule sua Economia Real</h2>
+                <div class="calculator-container">
+                    <div class="row gx-4 gy-3">
+                        <div class="col-lg-7">
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <label for="householdSize" class="form-label fw-bold">Quantas pessoas moram na casa?</label>
+                                    <select id="householdSize" class="form-select">
+                                        <option value="0" selected disabled>Selecione...</option>
+                                        <option value="1">1 pessoa</option>
+                                        <option value="2">2 pessoas</option>
+                                        <option value="3">3 pessoas</option>
+                                        <option value="4">4 pessoas</option>
+                                        <option value="5">5 ou mais</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label for="waterBill" class="form-label fw-bold">Valor da conta (R$)</label>
+                                    <input type="number" class="form-control" id="waterBill" placeholder="Ex: 150">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-5">
+                             <label class="form-label fw-bold">Marque seus hábitos de uso:</label>
+                             <div class="form-check">
+                               <input class="form-check-input" type="checkbox" id="gardenCheck">
+                               <label class="form-check-label" for="gardenCheck">Rego plantas ou jardim</label>
+                             </div>
+                             <div class="form-check">
+                               <input class="form-check-input" type="checkbox" id="washingCheck">
+                               <label class="form-check-label" for="washingCheck">Lavo quintal, calçada ou carro</label>
+                             </div>
+                        </div>
+                    </div>
+                    <div class="d-flex gap-2 mt-4">
+                        <button id="calculateBtn" class="btn btn-primary flex-grow-1">Calcular</button>
+                        <button id="resetBtn" class="btn btn-outline-secondary">Limpar</button>
+                    </div>
+                </div>
+                <div id="calculatorResult" class="calculator-result">
+                    <div class="row g-4">
+                        <div class="col-md-6">
+                            <p class="mb-2">Você pode economizar até:</p>
+                            <div id="billReduction" class="result-value">R$ 0,00</div>
+                            <p class="fw-bold">por mês na sua conta!</p>
                         </div>
                         <div class="col-md-6">
-                            <h3 class="maquete-title">Simulação 3D de Reuso</h3>
-                            <p class="maquete-description">Demonstração interativa de como um sistema residencial ou industrial pode coletar, filtrar e armazenar água da chuva para usos não potáveis (como irrigação ou descarga), reduzindo o consumo da rede pública.</p>
-                            <a href="#" class="btn btn-primary mt-3">Ver Simulação (Em breve)</a>
+                            <p class="mb-2">Substituindo até:</p>
+                            <div id="litersSaved" class="result-value">0 L</div>
+                            <p class="fw-bold">do seu consumo mensal!</p>
                         </div>
                     </div>
+                     <small class="d-block mt-4 text-muted">*Cálculo baseado no potencial de substituição de água potável por água da chuva para fins não potáveis.</small>
                 </div>
             </div>
         </section>
 
-        <section id="calculadora" class="row mb-5">
-            <h2 class="section-title">Calculadora de Economia de Água</h2>
-            <div class="col-lg-8 offset-lg-2">
-                <div class="calculator-container">
-                    <p class="text-center lead">Calcule a economia potencial ao adotar práticas sustentáveis em sua casa.</p>
-                    <form id="water-saving-form">
-                        <div class="mb-3">
-                            <label for="pessoas" class="form-label">Número de pessoas na residência:</label>
-                            <input type="number" class="form-control" id="pessoas" min="1" required>
-                        </div>
-                        <div class="mb-3">
-                            <label for="dias" class="form-label">Quantos dias no mês você deseja economizar:</label>
-                            <input type="number" class="form-control" id="dias" min="1" max="31" required>
-                        </div>
-                        <div class="mb-3 form-check">
-                            <input type="checkbox" class="form-check-input" id="torneira">
-                            <label class="form-check-label" for="torneira">Fecha a torneira ao escovar os dentes/ensaboar a louça (Economia estimada: 10L/dia).</label>
-                        </div>
-                        <div class="mb-3 form-check">
-                            <input type="checkbox" class="form-check-input" id="reuso">
-                            <label class="form-check-label" for="reuso">Reutiliza água da máquina de lavar para lavar o quintal (Economia estimada: 80L/reuso).</label>
-                        </div>
-                        <div class="mb-3 form-check">
-                            <input type="checkbox" class="form-check-input" id="banho">
-                            <label class="form-check-label" for="banho">Reduz o tempo de banho em 2 minutos (Economia estimada: 24L/banho).</label>
-                        </div>
-                        <button type="submit" class="btn btn-primary w-100 mt-3">Calcular Potencial de Economia</button>
-                    </form>
-                    <div id="calculator-result" class="calculator-result">
-                        <h4 class="fw-bold">Sua Economia Mensal Potencial:</h4>
-                        <p class="result-value"><span id="total-saved">0</span> Litros</p>
-                        <p class="mt-3">Se estas práticas forem mantidas, você ajudará a conservar um recurso vital para Presidente Prudente.</p>
+        <section id="beneficios" class="mt-5 pt-5">
+            <div class="row align-items-center g-5">
+                <div class="col-lg-6 order-lg-2">
+                    <div class="info-card">
+                        <h2>Vantagens e Aplicações</h2>
+                        <p>A implementação do RainNet oferece benefícios claros e imediatos:</p>
+                        <ul>
+                            <li><strong>Redução de Custos:</strong> Diminui significativamente a conta de água ao substituir o uso de água potável em tarefas que não a exigem.</li>
+                            <li><strong>Sustentabilidade:</strong> Alivia a pressão sobre os recursos hídricos locais e ajuda na prevenção de enchentes urbanas.</li>
+                            <li><strong>Automação Completa:</strong> O sistema gerencia a si mesmo, demandando mínima intervenção do usuário.</li>
+                            <li><strong>Versatilidade:</strong> Ideal para residências, condomínios, indústrias e propriedades rurais para irrigação, limpeza e outros fins não potáveis.</li>
+                        </ul>
                     </div>
+                </div>
+                <div class="col-lg-6 order-lg-1">
+                    <img src="https://blog.brkambiental.com.br/wp-content/uploads/2020/02/economia-de-%C3%A1gua-1-1024x683.jpg" alt="Benefícios do Reaproveitamento da Água" class="info-image">
                 </div>
             </div>
         </section>
@@ -177,89 +214,109 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-4 col-md-6 mb-4">
-                    <h5 class="fw-bold">Contato</h5>
                     <p class="mt-2">Presidente Prudente- SP</p>
                 </div>
                 <div class="col-lg-4 col-md-6 mb-4">
                     <h5 class="fw-bold">Links Úteis</h5>
                     <div class="footer-links">
-                        <a href="index.html">Início</a>
+                        <a href="Index.html">Início</a>
                         <a href="sobre.html">Sobre</a>
                         <a href="projeto.html">Projeto</a>
                         <a href="#">Política de Privacidade</a>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-12 mb-4">
-                    <h5 class="fw-bold">Feira de Conhecimento</h5>
-                    <p>O projeto Rainet é uma iniciativa da Feira de Conhecimento do ano de 2024</p>
-                    <div class="social-links">
-                        <a href="#"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                    </div>
+                    <h5 class="fw-bold">Feira de Ciências</h5>
+                    <p class="mb-1">João Pedro Cruz Rocha</p>
+                    <p class="mb-1">Ricardo De Oliveira</p>
+                    <p class="mb-1">Gustavo Pereira Lima</p>
+                    <p class="mb-1">Arthur Gimenez</p>
                 </div>
             </div>
-            <hr class="my-4">
-            <div class="row">
-                <div class="col-12 text-center">
-                    <p class="mb-0">© 2024 Rainet. Todos os direitos reservados.</p>
-                </div>
-            </div>
+            <hr style="border-color: #2a2a2a; margin: 30px 0;">
+            <div class="text-center"><p>©2025- Todos os direitos reservados.</p></div>
         </div>
     </footer>
     
-    <div class="accessibility-widget" id="accessibility-toggle">
-        <i class="fas fa-wheelchair"></i>
-    </div>
-    <div class="accessibility-menu" id="accessibility-menu">
+    <div vw class="enabled"><div vw-access-button class="active"></div><div vw-plugin-wrapper><div class="vw-plugin-top-wrapper"></div></div></div>
+    
+    <div class="accessibility-widget" id="accessibilityToggle" title="Menu de Acessibilidade"><i class="fas fa-universal-access"></i></div>
+    <div class="accessibility-menu" id="accessibilityMenu">
         <h5>Acessibilidade</h5>
-        <button id="increaseFont"><i class="fas fa-search-plus me-2"></i> Aumentar Fonte</button>
-        <button id="decreaseFont"><i class="fas fa-search-minus me-2"></i> Diminuir Fonte</button>
-        <button id="highContrast"><i class="fas fa-adjust me-2"></i> Alto Contraste</button>
-        <button id="resetAccessibility"><i class="fas fa-undo me-2"></i> Restaurar</button>
+        <button id="increaseFont"><i class="fas fa-search-plus me-2"></i>Aumentar Fonte</button>
+        <button id="decreaseFont"><i class="fas fa-search-minus me-2"></i>Diminuir Fonte</button>
+        <button id="highContrast"><i class="fas fa-adjust me-2"></i>Alto Contraste</button>
+        <button id="resetAccessibility"><i class="fas fa-undo me-2"></i>Redefinir</button>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+    
+    <script>
+        const calculateBtn = document.getElementById('calculateBtn');
+        const resetBtn = document.getElementById('resetBtn');
+        const householdSizeSelect = document.getElementById('householdSize');
+        const billInput = document.getElementById('waterBill');
+        const gardenCheck = document.getElementById('gardenCheck');
+        const washingCheck = document.getElementById('washingCheck');
+        const resultContainer = document.getElementById('calculatorResult');
+        const litersElement = document.getElementById('litersSaved');
+        const billElement = document.getElementById('billReduction');
+
+        function calculateSavings() {
+            const dailyLitersPerPerson = 150;
+            const baseReplaceablePercent = 0.30;
+            const gardenPercent = 0.20;
+            const washingPercent = 0.15;
+            const householdSize = parseInt(householdSizeSelect.value);
+            const waterBill = parseFloat(billInput.value);
+
+            if (householdSize === 0) {
+                alert("Por favor, selecione o número de pessoas na residência.");
+                return;
+            }
+            if (isNaN(waterBill) || waterBill <= 0) {
+                alert("Por favor, insira um valor válido e positivo para a conta de água.");
+                return;
+            }
+
+            const estimatedMonthlyConsumptionLiters = householdSize * dailyLitersPerPerson * 30;
+            let totalReplaceablePercent = baseReplaceablePercent;
+            if (gardenCheck.checked) { totalReplaceablePercent += gardenPercent; }
+            if (washingCheck.checked) { totalReplaceablePercent += washingPercent; }
+            totalReplaceablePercent = Math.min(totalReplaceablePercent, 0.75);
+
+            const monthlyLitersSaved = estimatedMonthlyConsumptionLiters * totalReplaceablePercent;
+            const monthlyMoneySaved = waterBill * totalReplaceablePercent;
+
+            litersElement.textContent = monthlyLitersSaved.toLocaleString('pt-BR', { maximumFractionDigits: 0 }) + ' L';
+            billElement.textContent = 'R$ ' + monthlyMoneySaved.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+            resultContainer.style.display = 'block';
+        }
+
+        function resetCalculator() {
+            householdSizeSelect.value = '0';
+            billInput.value = '';
+            gardenCheck.checked = false;
+            washingCheck.checked = false;
+            resultContainer.style.display = 'none';
+            litersElement.textContent = '0 L';
+            billElement.textContent = 'R$ 0,00';
+        }
+
+        calculateBtn.addEventListener('click', calculateSavings);
+        resetBtn.addEventListener('click', resetCalculator);
+    </script>
     <script>
         document.addEventListener("DOMContentLoaded", function () {
-            const form = document.getElementById('water-saving-form');
-            const resultDiv = document.getElementById('calculator-result');
-            const totalSavedSpan = document.getElementById('total-saved');
+            new window.VLibras.Widget('https://vlibras.gov.br/app');
 
-            form.addEventListener('submit', function(e) {
-                e.preventDefault();
-
-                const pessoas = parseInt(document.getElementById('pessoas').value);
-                const dias = parseInt(document.getElementById('dias').value);
-                
-                let economiaPorDia = 0;
-                let economiaTotal = 0;
-
-                if (document.getElementById('torneira').checked) {
-                    economiaPorDia += 10; 
-                }
-                
-                if (document.getElementById('reuso').checked) {
-                    economiaTotal += 80; 
-                }
-
-                if (document.getElementById('banho').checked) {
-                    economiaPorDia += 24; 
-                }
-
-                economiaTotal += (economiaPorDia * pessoas * dias);
-
-                totalSavedSpan.textContent = economiaTotal.toLocaleString('pt-BR');
-                resultDiv.style.display = 'block';
-            });
-
-            const accessibilityToggle = document.getElementById('accessibility-toggle');
-            const accessibilityMenu = document.getElementById('accessibility-menu');
+            const accessibilityToggle = document.getElementById('accessibilityToggle');
+            const accessibilityMenu = document.getElementById('accessibilityMenu');
             const body = document.body;
-            let originalFontSize = '';
+            let originalFontSize;
 
-            if (window.getComputedStyle) {
+            if(body) {
                 originalFontSize = window.getComputedStyle(body).fontSize;
             }
             

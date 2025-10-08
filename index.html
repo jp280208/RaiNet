@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rainet</title>
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.css" />
+    <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/1206/1206405.png" type="image/png">
+    <style>
+        :root {
+            --primary: #007BFF;
+            --primary-gradient: linear-gradient(135deg, #007BFF, #00C6FF);
+            --secondary: #2D3748;
+            --accent: #FFD166;
+            --light-bg: #F8FAFC;
+            --dark-text: #2D3748;
+            --light-text: #FFFFFF;
+            --card-bg: #FFFFFF;
+            --footer-bg: #1a202c;
+        }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: var(--light-bg); color: var(--dark-text); overflow-x: hidden; }
+        .top-header-main { background-color: var(--primary); position: relative; color: white; }
+        .top-header-main::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(90deg, #7aceff, #5b95ff); z-index: 1; }
+        .top-header-main .container { position: relative; z-index: 2; padding-top: 1.5rem; padding-bottom: 1.5rem; }
+        .navbar-main { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; }
+        .navbar-main .logo img { max-height: 60px; height: auto; transition: max-height 0.3s; }
+        .navbar-main .nav-links { list-style: none; padding: 0; margin: 0; display: flex; gap: 2rem; }
+        .navbar-main .nav-links a { color: white; text-decoration: none; font-weight: 600; font-size: 1.1rem; position: relative; padding-bottom: 5px; text-shadow: 1px 1px 3px rgba(0,0,0,0.2); }
+        .navbar-main .nav-links a::after { content: ''; position: absolute; bottom: 0; left: 0; width: 0; height: 2px; background: white; transition: width 0.3s; }
+        .navbar-main .nav-links a:hover::after, .navbar-main .nav-links a.active::after { width: 100%; }
+        @media (max-width: 768px) {
+            .top-header-main .container { padding-top: 1rem; padding-bottom: 1rem; }
+            .navbar-main { flex-direction: column; align-items: flex-start; gap: 1rem; }
+            .navbar-main .nav-links { flex-direction: column; align-items: flex-start; gap: 0.5rem; }
+        }
+        .section-title { position: relative; margin-bottom: 40px; font-weight: 700; text-align: center; }
+        .section-title::after { content: ''; display: block; width: 60px; height: 4px; background: var(--primary-gradient); margin: 15px auto; border-radius: 2px; }
+        .content-section { background: var(--card-bg); border-radius: 12px; box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08); transition: transform 0.3s; }
+        .content-section:hover { transform: translateY(-5px); }
+        .btn-primary { background: var(--primary-gradient); border: none; border-radius: 30px; padding: 12px 30px; font-weight: 600; transition: all 0.3s; color: white !important; }
+        .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 8px 15px rgba(0, 123, 255, 0.3); }
+        footer { background: var(--footer-bg); color: var(--light-text); }
+        .animated-section { opacity: 0; transform: translateY(20px); transition: opacity 0.8s ease-out, transform 0.8s ease-out; }
+        .animated-section.is-visible { opacity: 1; transform: translateY(0); }
+        .carousel-item { height: 450px; background-size: cover; background-position: center; border-radius: 12px; box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15); position: relative; }
+        .carousel-caption { background: rgba(0, 0, 0, 0.5); border-radius: 8px; padding: 20px; bottom: 20px; left: 50%; transform: translateX(-50%); width: 90%; max-width: 800px; }
+        .water-cycle-section { background: linear-gradient(rgba(0, 123, 255, 0.85), rgba(0, 198, 255, 0.85)), url('https://images.unsplash.com/photo-1549495914-256d953163aa?auto=format&fit=crop&q=80&w=1920') center center/cover fixed; padding: 80px 0; color: white; border-radius: 12px; box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08); }
+        .crisis-section { background: linear-gradient(rgba(45, 55, 72, 0.85), rgba(45, 55, 72, 0.85)), url('https://images.unsplash.com/photo-1567104234994-33a1e998a6a6?auto=format&fit=crop&q=80&w=1920') center center/cover fixed; padding: 80px 0; color: white; border-radius: 12px; box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08); }
+        .feature-card { background-color: var(--card-bg); border-radius: 12px; padding: 2rem; box-shadow: 0 5px 15px rgba(0,0,0,0.08); text-align: center; height: 100%; transition: transform 0.3s, box-shadow 0.3s; }
+        .feature-card:hover { transform: translateY(-10px); box-shadow: 0 12px 25px rgba(0,0,0,0.12); }
+        .feature-card .icon-circle { width: 70px; height: 70px; margin: 0 auto 1.5rem; border-radius: 50%; background: var(--primary-gradient); display: flex; align-items: center; justify-content: center; color: white; font-size: 2rem; }
+        #map { height: 500px; border-radius: 12px; box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08); margin-top: 20px; z-index: 1; }
+        .map-controls { display: flex; flex-direction: column; align-items: center; gap: 1rem; }
+        .accessibility-widget { position: fixed; top: 50%; left: 0; transform: translateY(-50%); background-color: var(--primary); color: white; border-radius: 0 15px 15px 0; width: 55px; height: 55px; display: flex; align-items: center; justify-content: center; font-size: 1.6rem; cursor: pointer; box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2); z-index: 1050; transition: all 0.3s; }
+        .accessibility-widget:hover { background-color: #0056b3; transform: translateY(-50%) scale(1.05); }
+        .accessibility-menu { position: fixed; top: 50%; left: 70px; transform: translateY(-50%); background-color: var(--card-bg); border-radius: 12px; box-shadow: 0 8px 25px rgba(0,0,0,0.15); padding: 1rem; z-index: 1040; display: none; width: 220px; border: 1px solid #eee; }
+        .accessibility-menu h5 { font-size: 1rem; font-weight: 600; color: var(--dark-text); margin-bottom: 1rem; border-bottom: 1px solid #eee; padding-bottom: 0.5rem; }
+        .accessibility-menu button { display: flex; align-items: center; width: 100%; padding: 10px 12px; margin-bottom: 8px; border: none; border-radius: 8px; background-color: transparent; cursor: pointer; transition: background-color 0.2s, color 0.2s; text-align: left; font-weight: 500; }
+        .accessibility-menu button:last-child { margin-bottom: 0; }
+        .accessibility-menu button:hover { background-color: rgba(0, 123, 255, 0.1); color: var(--primary); }
+        .high-contrast { background-color: #000 !important; color: #fff !important; }
+        .high-contrast .content-section, .high-contrast .feature-card, .high-contrast .navbar, .high-contrast .accessibility-menu { background-color: #000 !important; color: #fff !important; border: 1px solid #fff; }
+        .high-contrast .footer { background-color: #000 !important; }
+        .high-contrast .nav-link:hover { color: #fff !important; }
+        .footer-logo { max-height: 60px; margin-bottom: 15px; }
+        .footer-links a { color: #ccc; text-decoration: none; margin-bottom: 8px; transition: color 0.3s; display: block;}
+        .footer-links a:hover { color: var(--primary); }
+        .social-links { display: flex; gap: 15px; margin-top: 15px; }
+        .social-links a { color: #ccc; font-size: 1.5rem; transition: color 0.3s; }
+        .social-links a:hover { color: var(--primary); }
+        .vw-plugin-wrapper { right: 20px !important; left: unset !important; bottom: 20px !important; top: unset !important; z-index: 1060; }
+    </style>
+</head>
+<body>
+    
+    <header class="top-header-main">
+        <div class="container">
+            <nav class="navbar-main">
+                <div class="logo">
+                    <a href="index.html">
+                        <img src="img4.png" alt="Logo RainNet">
+                    </a>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html" class="active">Início</a></li>
+                    <li><a href="sobre.html">Sobre</a></li>
+                    <li><a href="#map-section">Mapa</a></li>
+                    <li><a href="projeto.html">Projeto</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container my-4 my-md-5">
+        <div id="waterCarousel" class="carousel slide mb-5 animated-section" data-bs-ride="carousel">
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#waterCarousel" data-bs-slide-to="0" class="active"></button>
+                <button type="button" data-bs-target="#waterCarousel" data-bs-slide-to="1"></button>
+                <button type="button" data-bs-target="#waterCarousel" data-bs-slide-to="2"></button>
+            </div>
+            <div class="carousel-inner rounded-3">
+                <div class="carousel-item active" style="background-image: url('imagem1.png');">
+                    <div class="carousel-caption d-none d-md-block"><h5>Água: A Essência da Vida</h5><p>A substância mais extraordinária e essencial que conhecemos.</p></div>
+                </div>
+                <div class="carousel-item" style="background-image: url('imagem2.png');">
+                    <div class="carousel-caption d-none d-md-block"><h5>Nosso Planeta Azul</h5><p>Cobrindo 71% da Terra, moldando paisagens e sustentando ecossistemas.</p></div>
+                </div>
+                <div class="carousel-item" style="background-image: url('imagem3.png');">
+                    <div class="carousel-caption d-none d-md-block"><h5>Recurso Inestimável</h5><p>Fonte de vida, energia e pilar para o futuro de todas as civilizações.</p></div>
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#waterCarousel" data-bs-slide="prev"><span class="carousel-control-prev-icon"></span></button>
+            <button class="carousel-control-next" type="button" data-bs-target="#waterCarousel" data-bs-slide="next"><span class="carousel-control-next-icon"></span></button>
+        </div>
+
+        <section id="properties" class="animated-section my-5 py-5">
+            <h2 class="section-title">Propriedades Únicas da Molécula da Vida</h2>
+            <div class="row">
+                <div class="col-lg-4 d-flex align-items-stretch mb-4"><div class="feature-card"><div class="icon-circle"><i class="fas fa-flask"></i></div><h4 class="fw-bold">Solvente Universal</h4><p>Sua polaridade permite dissolver mais substâncias que qualquer outro líquido, transportando nutrientes vitais.</p></div></div>
+                <div class="col-lg-4 d-flex align-items-stretch mb-4"><div class="feature-card"><div class="icon-circle"><i class="fas fa-cubes"></i></div><h4 class="fw-bold">Três Estados Naturais</h4><p>Única substância encontrada na natureza como sólido, líquido e gás, um equilíbrio essencial para a vida na Terra.</p></div></div>
+                <div class="col-lg-4 d-flex align-items-stretch mb-4"><div class="feature-card"><div class="icon-circle"><i class="fas fa-thermometer-half"></i></div><h4 class="fw-bold">Regulador de Temperatura</h4><p>Os oceanos absorvem e distribuem o calor, agindo como um termostato global que estabiliza o clima.</p></div></div>
+            </div>
+        </section>
+
+        <section class="water-cycle-section text-center animated-section my-5">
+            <div class="container"><h2 class="section-title text-light">O Ciclo Infinito da Água</h2><p class="lead fs-5 px-md-5 mb-5">É o sistema de reciclagem e purificação mais eficiente do mundo. Evapora, forma nuvens, precipita e retorna, sustentando todos os ecossistemas.</p><img src="https://storage.googleapis.com/novo-blog-wordpress/2023/12/731cd202-vegetacao_rios_ciclo_da_agua.jpg" alt="Ilustração do ciclo da água" class="img-fluid rounded-3 shadow-lg" style="max-height: 400px; background: white; padding:10px;"></div>
+        </section>
+
+        <section class="content-section animated-section my-5 py-5 px-3 px-md-5">
+            <h2 class="section-title">A Água no Brasil: Abundância e Contradições</h2>
+            <div class="row align-items-center"><div class="col-lg-6 text-center mb-4 mb-lg-0"><img src="https://s4.static.brasilescola.uol.com.br/be/2022/05/floresta-amazonica-rio-amazonas.jpg" alt="Rio na Amazônia" class="img-fluid rounded-3 shadow-sm"></div><div class="col-lg-6"><p>O Brasil detém cerca de 12% da água doce do planeta. No entanto, essa riqueza é mal distribuída. Enquanto a Amazônia concentra a maior parte, regiões populosas como o Sudeste enfrentam crises de abastecimento e o Nordeste sofre com secas.</p></div></div>
+        </section>
+
+        <section class="crisis-section text-center animated-section my-5">
+            <div class="container"><h2 class="section-title text-light">O Desafio Atual: A Crise Hídrica</h2><p class="lead fs-5 px-md-5 mb-5">A água doce acessível é um recurso finito e ameaçado por três fatores principais:</p><div class="row"><div class="col-md-4 mb-4"><h3 class="fw-bold"><i class="fas fa-hand-holding-water me-2"></i>Escassez</h3><p>O consumo crescente e a má gestão pressionam as fontes de água.</p></div><div class="col-md-4 mb-4"><h3 class="fw-bold"><i class="fas fa-biohazard me-2"></i>Poluição</h3><p>O descarte de resíduos contamina rios e lençóis freáticos.</p></div><div class="col-md-4 mb-4"><h3 class="fw-bold"><i class="fas fa-smog me-2"></i>Mudanças Climáticas</h3><p>Alteram os padrões de chuva, causando secas e inundações.</p></div></div></div>
+        </section>
+
+        <section id="map-section" class="content-section animated-section my-5 py-5 px-3 px-md-5">
+            <h2 class="section-title">Encontre o Ponto de Gestão de Água Mais Próximo</h2>
+            <div class="map-controls">
+                <p id="map-description" class="text-center lead mb-0"> Clique no botão para usar sua localização e encontrar o ponto mais próximo. </p>
+                <button id="find-location-btn" class="btn btn-primary"><i class="fas fa-map-marker-alt me-2"></i>Usar Minha Localização</button>
+            </div>
+            <div id="map"></div>
+        </section>
+    </main>
+
+    <footer id="contact" class="py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <p class="mt-2">Presidente Prudente- SP</p>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <h5 class="fw-bold">Links Úteis</h5>
+                    <div class="footer-links">
+                        <a href="index.html">Início</a>
+                        <a href="sobre.html">Sobre</a>
+                        <a href="projeto.html">Projeto</a>
+                        <a href="#">Política de Privacidade</a>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-12 mb-4">
+                    <h5 class="fw-bold">Feira de Conhecimento</h5>
+                    <p>O projeto Rainet é uma iniciativa da Feira de Conhecimento do ano de 2024</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+            </div>
+            <hr class="my-4">
+            <div class="row">
+                <div class="col-12 text-center">
+                    <p class="mb-0">© 2024 Rainet. Todos os direitos reservados.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+    <div class="accessibility-widget" id="accessibility-toggle">
+        <i class="fas fa-wheelchair"></i>
+    </div>
+    <div class="accessibility-menu" id="accessibility-menu">
+        <h5>Acessibilidade</h5>
+        <button id="increaseFont"><i class="fas fa-search-plus me-2"></i> Aumentar Fonte</button>
+        <button id="decreaseFont"><i class="fas fa-search-minus me-2"></i> Diminuir Fonte</button>
+        <button id="highContrast"><i class="fas fa-adjust me-2"></i> Alto Contraste</button>
+        <button id="resetAccessibility"><i class="fas fa-undo me-2"></i> Restaurar</button>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            let map = null;
+            const prudenteCenter = [-22.1228, -51.3853]; 
+
+            const locations = [
+                { lat: -22.1228, lng: -51.3853, name: "Ponto Central (Prefeitura)" },
+                { lat: -22.1250, lng: -51.3900, name: "Estação de Tratamento I" },
+                { lat: -22.1180, lng: -51.3800, name: "Reservatório de Água Bairro Y" },
+                { lat: -22.1280, lng: -51.3820, name: "Ponto de Coleta de Água da Chuva" }
+            ];
+
+            function addAllMarkers() {
+                locations.forEach(location => {
+                    L.marker([location.lat, location.lng]).addTo(map)
+                        .bindPopup(`<b>${location.name}</b>`);
+                });
+            }
+            
+            function initMap() {
+                const mapElement = document.getElementById('map');
+                
+                if (mapElement) {
+                    if (map && map.remove) {
+                        map.off();
+                        map.remove();
+                        map = null;
+                    }
+                    
+                    map = L.map('map').setView(prudenteCenter, 13);
+                    
+                    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                        attribution: '© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+                    }).addTo(map);
+
+                    addAllMarkers();
+                    document.getElementById('find-location-btn').addEventListener('click', findNearestLocation);
+                    
+                    window.addEventListener('pageshow', function(event) {
+                        if (event.persisted && map) {
+                            map.invalidateSize();
+                        }
+                    });
+                }
+            }
+            
+            function findNearestLocation() {
+                if (navigator.geolocation) {
+                    navigator.geolocation.getCurrentPosition(position => {
+                        const userLat = position.coords.latitude;
+                        const userLng = position.coords.longitude;
+                        
+                        let nearest = null;
+                        let minDistance = Infinity;
+
+                        locations.forEach(location => {
+                            const distance = getDistance(userLat, userLng, location.lat, location.lng);
+                            if (distance < minDistance) {
+                                minDistance = distance;
+                                nearest = location;
+                            }
+                        });
+
+                        map.setView([userLat, userLng], 14);
+
+                        L.marker([userLat, userLng]).addTo(map)
+                            .bindPopup("<b>Sua Localização</b>")
+                            .openPopup();
+                        
+                        if (nearest) {
+                            const description = document.getElementById('map-description');
+                            description.innerHTML = `O ponto mais próximo é <b>${nearest.name}</b>, a aproximadamente <b>${minDistance.toFixed(2)} km</b> de distância.`;
+                        }
+
+                    }, error => {
+                        alert("Erro ao obter localização: " + error.message);
+                    });
+                } else {
+                    alert("Seu navegador não suporta geolocalização.");
+                }
+            }
+
+            function getDistance(lat1, lon1, lat2, lon2) {
+                const R = 6371; 
+                const dLat = (lat2 - lat1) * (Math.PI / 180);
+                const dLon = (lon2 - lon1) * (Math.PI / 180);
+                const a = 
+                    Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+                    Math.cos(lat1 * (Math.PI / 180)) * Math.cos(lat2 * (Math.PI / 180)) * Math.sin(dLon / 2) * Math.sin(dLon / 2);
+                const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+                return R * c; 
+            }
+
+            initMap(); 
+
+            const accessibilityToggle = document.getElementById('accessibility-toggle');
+            const accessibilityMenu = document.getElementById('accessibility-menu');
+            const body = document.body;
+            let originalFontSize = '';
+
+            if (window.getComputedStyle) {
+                originalFontSize = window.getComputedStyle(body).fontSize;
+            }
+
+            accessibilityToggle.addEventListener('click', (event) => {
+                event.stopPropagation();
+                accessibilityMenu.style.display = accessibilityMenu.style.display === 'block' ? 'none' : 'block';
+            });
+
+            document.addEventListener('click', (event) => {
+                if (!accessibilityMenu.contains(event.target) && !accessibilityToggle.contains(event.target)) {
+                    accessibilityMenu.style.display = 'none';
+                }
+            });
+
+            document.getElementById('increaseFont').addEventListener('click', () => {
+                let currentSize = parseFloat(window.getComputedStyle(body).fontSize);
+                body.style.fontSize = `${currentSize * 1.1}px`;
+            });
+
+            document.getElementById('decreaseFont').addEventListener('click', () => {
+                let currentSize = parseFloat(window.getComputedStyle(body).fontSize);
+                body.style.fontSize = `${currentSize * 0.9}px`;
+            });
+
+            document.getElementById('highContrast').addEventListener('click', () => {
+                body.classList.toggle('high-contrast');
+            });
+
+            document.getElementById('resetAccessibility').addEventListener('click', () => {
+                body.style.fontSize = originalFontSize;
+                body.classList.remove('high-contrast');
+            });
+        });
+    </script>
+</body>
+</html>

@@ -76,21 +76,14 @@
 </head>
 <body>
     
-    <header class="top-header-main">
-        <div class="container">
-            <nav class="navbar-main">
-                <div class="logo">
-                    <a href="index.html">
-                        <img src="img4.png" alt="Logo RainNet">
-                    </a>
-                </div>
-                <ul class="nav-links">
-                    <li><a href="index.html" class="active">Início</a></li>
-                    <li><a href="sobre.html">Sobre</a></li>
-                    <li><a href="#map-section">Mapa</a></li>
-                    <li><a href="projeto.html">Projeto</a></li>
-                </ul>
-            </nav>
+   <nav class="navbar-main">
+    <div class="logo">
+        <a href="index.html"> <img src="img4.png" alt="Logo RainNet">
+        </a>
+    </div>
+    <ul class="nav-links">
+        <li><a href="index.html" class="active">Início</a></li> <li><a href="sobre.html">Sobre</a></li>                <li><a href="#map-section">Mapa</a></li>               <li><a href="projeto.html">Projeto</a></li>              </ul>
+</nav>
         </div>
     </header>
 
@@ -137,11 +130,13 @@
         <section class="crisis-section text-center animated-section my-5">
             <div class="container"><h2 class="section-title text-light">O Desafio Atual: A Crise Hídrica</h2><p class="lead fs-5 px-md-5 mb-5">A água doce acessível é um recurso finito e ameaçado por três fatores principais:</p><div class="row"><div class="col-md-4 mb-4"><h3 class="fw-bold"><i class="fas fa-hand-holding-water me-2"></i>Escassez</h3><p>O consumo crescente e a má gestão pressionam as fontes de água.</p></div><div class="col-md-4 mb-4"><h3 class="fw-bold"><i class="fas fa-biohazard me-2"></i>Poluição</h3><p>O descarte de resíduos contamina rios e lençóis freáticos.</p></div><div class="col-md-4 mb-4"><h3 class="fw-bold"><i class="fas fa-smog me-2"></i>Mudanças Climáticas</h3><p>Alteram os padrões de chuva, causando secas e inundações.</p></div></div></div>
         </section>
-
+        
         <section id="map-section" class="content-section animated-section my-5 py-5 px-3 px-md-5">
             <h2 class="section-title">Encontre o Ponto de Gestão de Água Mais Próximo</h2>
             <div class="map-controls">
-                <p id="map-description" class="text-center lead mb-0"> Clique no botão para usar sua localização e encontrar o ponto mais próximo. </p>
+                <p id="map-description" class="text-center lead mb-0">
+                    Clique no botão para usar sua localização e encontrar o ponto mais próximo.
+                </p>
                 <button id="find-location-btn" class="btn btn-primary"><i class="fas fa-map-marker-alt me-2"></i>Usar Minha Localização</button>
             </div>
             <div id="map"></div>
@@ -157,146 +152,270 @@
                 <div class="col-lg-4 col-md-6 mb-4">
                     <h5 class="fw-bold">Links Úteis</h5>
                     <div class="footer-links">
-                        <a href="index.html">Início</a>
+                        <a href="Index.html">Início</a>
                         <a href="sobre.html">Sobre</a>
                         <a href="projeto.html">Projeto</a>
                         <a href="#">Política de Privacidade</a>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-12 mb-4">
-                    <h5 class="fw-bold">Feira de Conhecimento</h5>
-                    <p>O projeto Rainet é uma iniciativa da Feira de Conhecimento do ano de 2024</p>
-                    <div class="social-links">
-                        <a href="#"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                    </div>
+                    <h5 class="fw-bold">Feira de Ciências</h5>
+                    <p class="mb-1">João Pedro Cruz Rocha</p>
+                    <p class="mb-1">Ricardo De Oliveira</p>
+                    <p class="mb-1">Gustavo Pereira Lima</p>
+                    <p class="mb-1">Arthur Gimenez</p>
                 </div>
             </div>
-            <hr class="my-4">
-            <div class="row">
-                <div class="col-12 text-center">
-                    <p class="mb-0">© 2024 Rainet. Todos os direitos reservados.</p>
-                </div>
-            </div>
+            <hr style="border-color: #2a2a2a; margin: 30px 0;">
+            <div class="text-center"><p>©2025- Todos os direitos reservados.</p></div>
         </div>
     </footer>
+
+    <div vw class="enabled"><div vw-access-button class="active"></div><div vw-plugin-wrapper><div class="vw-plugin-top-wrapper"></div></div></div>
     
-    <div class="accessibility-widget" id="accessibility-toggle">
-        <i class="fas fa-wheelchair"></i>
-    </div>
-    <div class="accessibility-menu" id="accessibility-menu">
+    <div class="accessibility-widget" id="accessibilityToggle" title="Menu de Acessibilidade"><i class="fas fa-universal-access"></i></div>
+    <div class="accessibility-menu" id="accessibilityMenu">
         <h5>Acessibilidade</h5>
-        <button id="increaseFont"><i class="fas fa-search-plus me-2"></i> Aumentar Fonte</button>
-        <button id="decreaseFont"><i class="fas fa-search-minus me-2"></i> Diminuir Fonte</button>
-        <button id="highContrast"><i class="fas fa-adjust me-2"></i> Alto Contraste</button>
-        <button id="resetAccessibility"><i class="fas fa-undo me-2"></i> Restaurar</button>
+        <button id="increaseFont"><i class="fas fa-search-plus me-2"></i>Aumentar Fonte</button>
+        <button id="decreaseFont"><i class="fas fa-search-minus me-2"></i>Diminuir Fonte</button>
+        <button id="highContrast"><i class="fas fa-adjust me-2"></i>Alto Contraste</button>
+        <button id="resetAccessibility"><i class="fas fa-undo me-2"></i>Redefinir</button>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.js"></script>
+
     <script>
         document.addEventListener("DOMContentLoaded", function () {
-            let map = null;
-            const prudenteCenter = [-22.1228, -51.3853]; 
+            new window.VLibras.Widget('https://vlibras.gov.br/app');
 
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.1 });
+            document.querySelectorAll('.animated-section').forEach(section => observer.observe(section));
+
+            let map;
+            let currentMarkers = [];
+            const mapDescription = document.getElementById('map-description');
+            const prudenteCenter = [-22.1229, -51.3884];
+            
             const locations = [
-                { lat: -22.1228, lng: -51.3853, name: "Ponto Central (Prefeitura)" },
-                { lat: -22.1250, lng: -51.3900, name: "Estação de Tratamento I" },
-                { lat: -22.1180, lng: -51.3800, name: "Reservatório de Água Bairro Y" },
-                { lat: -22.1280, lng: -51.3820, name: "Ponto de Coleta de Água da Chuva" }
+                // Parques, Lazer e Áreas Verdes
+                { coords: [-22.1174, -51.4084], title: "Parque do Povo", description: "Extensa área verde linear com alta demanda de irrigação." },
+                { coords: [-22.1750, -51.4550], title: "Cidade da Criança", description: "Complexo de lazer com lagos, piscinas e zoológico, representando alto consumo de água." },
+                { coords: [-22.1356, -51.3989], title: "Parque de Uso Múltiplo (PUM)", description: "Área de eventos e lazer que pode sofrer com alagamentos e ter melhor gestão pluvial." },
+                { coords: [-22.1450, -51.3800], title: "Parque Ecológico da Cidade", description: "Área de preservação com necessidade de manutenção de ecossistemas aquáticos." },
+                { coords: [-22.1200, -51.3800], title: "Praça Nove de Julho", description: "Praça central com jardins e fonte, ideal para projetos demonstrativos de reuso de água." },
+                { coords: [-22.1235, -51.3788], title: "Bosque Municipal", description: "Fragmento de mata urbana que auxilia na regulação da umidade e temperatura local." },
+                { coords: [-22.1492, -51.4176], title: "Praça da Juventude e Esportes (Ana Jacinta)", description: "Complexo esportivo com demanda de água para manutenção e vestiários." },
+                { coords: [-22.1097, -51.2721], title: "Parque do Povo (Regente Feijó)", description: "Área de lazer em cidade vizinha com potencial para projetos de irrigação sustentável." },
+                
+                // Clubes Sociais e Recreativos
+                { coords: [-22.1116, -51.4215], title: "Tênis Clube de Prudente", description: "Clube com piscinas, saunas e jardins que representam alto consumo de água." },
+                { coords: [-22.1332, -51.4140], title: "APEA", description: "Associação Prudentina de Esportes Atléticos, com piscinas e grande área verde." },
+                { coords: [-22.1080, -51.4050], title: "Sesi", description: "Complexo esportivo e educacional com piscinas e áreas verdes que demandam irrigação." },
+                { coords: [-22.1811, -51.4025], title: "San Fernando Clube de Campo", description: "Clube de campo com vasta área verde, piscinas e lagos, com grande potencial para autossuficiência hídrica." },
+                { coords: [-22.1023, -51.4199], title: "Acae", description: "Associação cultural e esportiva com piscinas e instalações que consomem grande volume de água." },
+
+                // Edifícios Públicos e Culturais
+                { coords: [-22.1251, -51.3886], title: "Prefeitura Municipal", description: "Edifício público com grande área de cobertura para captação de água." },
+                { coords: [-22.1224, -51.3853], title: "Centro Cultural Matarazzo", description: "Importante espaço público com telhados amplos para captação e eventos." },
+                { coords: [-22.1120, -51.3820], title: "Catedral de São Sebastião", description: "Edifício histórico com grande telhado, ideal para captação de água pluvial." },
+                { coords: [-22.1217, -51.3898], title: "Câmara Municipal", description: "Prédio do legislativo com potencial para projetos de reuso e economia de água." },
+                { coords: [-22.1230, -51.3945], title: "Fórum da Comarca", description: "Grande edifício público com potencial para implementação de cisternas." },
+                { coords: [-22.1155, -51.4021], title: "Corpo de Bombeiros", description: "Unidade de serviço com alto consumo de água para viaturas e treinamento." },
+                { coords: [-22.1245, -51.3912], title: "Receita Federal", description: "Edifício governamental com área de telhado considerável para projetos de captação." },
+                { coords: [-22.1208, -51.3921], title: "INSS", description: "Agência da Previdência Social, edifício com grande fluxo de pessoas e estrutura para reuso de água." },
+                { coords: [-22.1229, -51.3824], title: "Museu e Arquivo Histórico Municipal", description: "Prédio histórico com potencial para sistemas de captação para manutenção de jardins." },
+                
+                // Educação
+                { coords: [-22.1190, -51.4250], title: "Unoeste - Campus I", description: "Campus universitário com dezenas de edifícios e áreas verdes para projetos de reuso em larga escala." },
+                { coords: [-22.1640, -51.4070], title: "Unesp - FCT", description: "Campus da Universidade Estadual Paulista, com grande área e laboratórios com demanda de água." },
+                { coords: [-22.1500, -51.3950], title: "FATEC", description: "Instituição de ensino superior com possibilidade de projetos educacionais e práticos de gestão hídrica." },
+                { coords: [-22.1182, -51.4027], title: "Colégio Anglo", description: "Escola de grande porte com telhados e quadras para captação pluvial." },
+                { coords: [-22.1287, -51.3933], title: "E.E. Fernando Costa", description: "Escola pública tradicional com grande área construída e pátios." },
+                { coords: [-22.1340, -51.3880], title: "Senac", description: "Unidade de ensino profissionalizante com estrutura moderna e potencial para reuso de água." },
+                { coords: [-22.1325, -51.4095], title: "Colégio Cristo Rei", description: "Instituição de ensino com grande estrutura física, ideal para projetos de captação." },
+                { coords: [-22.1158, -51.4150], title: "Colégio Objetivo", description: "Unidade de ensino particular com estrutura ampla e potencial para reuso." },
+
+                // Comércio, Indústria e Serviços
+                { coords: [-22.1050, -51.3950], title: "Prudenshopping", description: "Principal shopping, com gigantesca superfície de telhado para captação de água pluvial e reuso." },
+                { coords: [-22.1142, -51.3888], title: "Carrefour / Parque Shopping", description: "Complexo comercial com hipermercado e lojas, vasta área de telhado e estacionamento." },
+                { coords: [-22.1055, -51.4423], title: "Atacadão", description: "Hipermercado com vasta área de cobertura, ideal para captação em larga escala." },
+                { coords: [-22.1303, -51.4501], title: "Assaí Atacadista", description: "Grande loja atacadista com enorme potencial de captação pluvial em seu telhado." },
+                { coords: [-22.1425, -51.4288], title: "Muffato", description: "Supermercado com grande telhado e estacionamento, gerando escoamento significativo." },
+                { coords: [-22.1280, -51.4150], title: "Ceagesp Prudente", description: "Mercado atacadista com grande consumo de água para limpeza e potencial para reuso." },
+                { coords: [-22.1585, -51.4468], title: "Distrito Industrial (Não Reinold)", description: "Zona industrial com diversas empresas e potencial para projetos de reuso de água em processos." },
+                { coords: [-22.1200, -51.3950], title: "Mercadão Municipal", description: "Grande área de cobertura e consumo de água para limpeza, ideal para captação e reuso." },
+                { coords: [-22.1520, -51.4400], title: "Agrojet", description: "Indústria de equipamentos agropecuários localizada no distrito industrial." },
+                { coords: [-22.1135, -51.4331], title: "Liane Veículos (Volkswagen)", description: "Concessionária com grande área de pátio e oficina, alto potencial para reuso de água na lavagem de carros." },
+                { coords: [-22.1100, -51.4280], title: "V. Muchiutt (Chevrolet)", description: "Concessionária de grande porte com telhados amplos e pátios impermeabilizados." },
+
+                // Esportes
+                { coords: [-22.0986, -51.4150], title: "Estádio Prudentão", description: "Extenso gramado com altíssima demanda de irrigação para manutenção." },
+                { coords: [-22.1050, -51.4100], title: "Ginásio Municipal de Esportes", description: "Instalação esportiva com grande telhado e demanda de água para vestiários e limpeza." },
+                { coords: [-22.1294, -51.4033], title: "Centro Olímpico", description: "Complexo com diversas modalidades esportivas e grande área para projetos hídricos." },
+
+                // Saúde
+                { coords: [-22.1000, -51.3750], title: "Hospital Regional (HR)", description: "Principal complexo hospitalar, pode implementar sistemas de reuso para áreas não potáveis." },
+                { coords: [-22.1264, -51.3984], title: "Santa Casa de Misericórdia", description: "Hospital com alto consumo de água e telhados amplos para captação." },
+                { coords: [-22.1105, -51.4111], title: "Hospital Iamada", description: "Unidade de saúde com potencial para projetos de eficiência hídrica." },
+                { coords: [-22.1308, -51.3850], title: "Hospital Morumbi", description: "Hospital com estrutura verticalizada e telhado com potencial de captação." },
+                { coords: [-22.1481, -51.4205], title: "UPA Zona Norte", description: "Unidade de Pronto Atendimento 24h com consumo contínuo de água." },
+                { coords: [-22.1407, -51.3938], title: "UPA Ana Jacinta", description: "Unidade de Pronto Atendimento em bairro populoso, com estrutura ideal para reuso." },
+                
+                // Infraestrutura e Transporte
+                { coords: [-22.1747, -51.3758], title: "Aeroporto de Presidente Prudente (ADEPP)", description: "Grande área de pistas e telhados (terminal, hangares) com enorme potencial de captação." },
+                { coords: [-22.1205, -51.3845], title: "Antiga Estação Ferroviária", description: "Edifício histórico que pode ser revitalizado com projetos sustentáveis." },
+                { coords: [-22.1311, -51.4322], title: "ETA Primeira Água (Sabesp)", description: "Estação de Tratamento de Água, ponto central da infraestrutura de saneamento da cidade." },
+                { coords: [-22.1300, -51.3990], title: "Terminal Rodoviário", description: "Grande fluxo de pessoas e veículos, com telhados e pátios para captação e reuso na limpeza." },
+
+                // Cemitérios
+                { coords: [-22.1328, -51.4018], title: "Cemitério São João Batista", description: "Grande área com necessidade de irrigação para manutenção das áreas verdes." },
+                { coords: [-22.1010, -51.4285], title: "Cemitério Campal (Parque da Paz)", description: "Vasta área gramada que demanda irrigação constante." },
+                
+                // Regional
+                { coords: [-22.2139, -51.4586], title: "Balneário da Amizade", description: "Importante represa para lazer regional, necessita de gestão de qualidade da água." },
+                { coords: [-21.8656, -51.1714], title: "Represa Laranja Doce (Martinópolis)", description: "Grande reservatório regional, vital para o abastecimento e equilíbrio do ecossistema local." },
+
+                // Condomínios Residenciais
+                { coords: [-22.1555, -51.4210], title: "Condomínio Damha I", description: "Condomínio de alto padrão com extensas áreas verdes, lagos e clube, demandando muita irrigação." },
+                { coords: [-22.1590, -51.4245], title: "Condomínio Damha II", description: "Similar ao Damha I, com grande área permeável e necessidade de gestão hídrica para jardins." },
+                { coords: [-22.1625, -51.4290], title: "Condomínio Damha III", description: "Expansão do complexo Damha, com clube e grandes lotes gramados." },
+                { coords: [-22.1001, -51.4398], title: "Condomínio Residencial Damha IV", description: "Mais um condomínio do grupo, com infraestrutura de lazer e paisagismo." },
+                { coords: [-22.1390, -51.4520], title: "Condomínio Porto Madero", description: "Grande condomínio horizontal com foco em lazer e áreas verdes." },
+                { coords: [-22.1400, -51.4450], title: "Condomínio Portinari", description: "Residencial com casas de alto padrão e jardins que necessitam de irrigação." },
+                { coords: [-22.1400, -51.3700], title: "Condomínio Residencial Florença", description: "Condomínio com áreas comuns que podem ser irrigadas com água de reuso." },
+                { coords: [-22.1465, -51.4580], title: "Condomínio Quinta do Imperador", description: "Residencial com grande área verde e potencial para cisternas individuais e coletivas." },
+                { coords: [-22.0910, -51.4350], title: "Condomínio Terras de Canãa", description: "Condomínio com lotes amplos e foco em paisagismo e áreas de lazer." },
+                { coords: [-22.0980, -51.4500], title: "Condomínio Buritis", description: "Residencial com clube e áreas verdes que podem se beneficiar da captação de água da chuva." },
+                { coords: [-22.1505, -51.4522], title: "Condomínio Village Damha", description: "Condomínio do complexo Damha com clube e áreas de lazer." },
+                { coords: [-22.1488, -51.4477], title: "Condomínio Valência I", description: "Residencial com infraestrutura de lazer e grande área de telhados e jardins." },
+                { coords: [-22.1495, -51.4422], title: "Condomínio Valência II", description: "Expansão do Valência, com características semelhantes de consumo hídrico para lazer e paisagismo." },
+                { coords: [-22.1355, -51.4600], title: "Condomínio Porto Seguro", description: "Grande residencial com necessidade de irrigação para suas áreas comuns." },
+                { coords: [-22.1377, -51.4651], title: "Condomínio Maré Mansa", description: "Residencial próximo a áreas de lazer, com potencial para projetos de reuso." },
+                { coords: [-22.0850, -51.4290], title: "Condomínio Royal Park", description: "Condomínio com grande densidade de telhados e áreas permeáveis para irrigação." },
+                { coords: [-22.1030, -51.4480], title: "Condomínio Jatobá", description: "Residencial com potencial para implementação de sistemas de captação em escala." },
+
+                // ---- NOVOS PONTOS (GRANULARES) ----
+                { coords: [-22.1150, -51.4172], title: "Centro de Distribuição Magazine Luiza", description: "Enorme galpão logístico com vasta área de telhado para captação pluvial em larga escala." },
+                { coords: [-22.1601, -51.4523], title: "Andorinha Transportadora", description: "Garagem e centro de manutenção de uma das maiores frotas de ônibus da região, alto consumo de água para limpeza." },
+                { coords: [-22.1129, -51.4402], title: "Transportadora JSL", description: "Unidade de uma grande empresa de logística, com pátio e frota de caminhões." },
+                { coords: [-22.1085, -51.3905], title: "Coca-Cola FEMSA", description: "Centro de distribuição de bebidas, com grande frota de caminhões e galpões." },
+                { coords: [-22.1162, -51.4131], title: "Posto BR (Av. Washington Luiz)", description: "Posto de combustível de grande porte com lava-rápido e loja de conveniência." },
+                { coords: [-22.1318, -51.4190], title: "Posto Ipiranga (Av. Brasil)", description: "Posto de alto fluxo com serviços de lavagem e troca de óleo." },
+                { coords: [-22.1098, -51.3965], title: "Lava Rápido Acquazero", description: "Franquia de estética automotiva com foco (teórico) em uso reduzido de água." },
+                { coords: [-22.1282, -51.3831], title: "Lava Car Cuidado Automotivo", description: "Lava-rápido tradicional com alto consumo de água." },
+                { coords: [-22.1458, -51.4390], title: "Centro de Distribuição dos Correios", description: "Unidade logística central dos correios na região, com grande pátio e telhado." }
             ];
 
-            function addAllMarkers() {
-                locations.forEach(location => {
-                    L.marker([location.lat, location.lng]).addTo(map)
-                        .bindPopup(`<b>${location.name}</b>`);
+            function clearMarkers() {
+                currentMarkers.forEach(marker => map.removeLayer(marker));
+                currentMarkers = [];
+            }
+
+            function getDistance(lat1, lon1, lat2, lon2) {
+                const R = 6371;
+                const dLat = (lat2 - lat1) * Math.PI / 180;
+                const dLon = (lon2 - lon1) * Math.PI / 180;
+                const a = Math.sin(dLat / 2) * Math.sin(dLat / 2) + Math.cos(lat1 * Math.PI / 180) * Math.cos(lat2 * Math.PI / 180) * Math.sin(dLon / 2) * Math.sin(dLon / 2);
+                const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+                return R * c;
+            }
+
+            function addAllMarkers(closestLocation = null) {
+                let closestMarker = null;
+                locations.forEach(function(location) {
+                    const marker = L.marker(location.coords).addTo(map);
+                    let popupContent = `<h5>${location.title}</h5><p>${location.description}</p>`;
+                    popupContent += `<a href="https://www.google.com/maps/search/?api=1&query=${location.coords[0]},${location.coords[1]}" target="_blank" class="btn btn-sm btn-primary mt-2">Ver no Mapa</a>`;
+                    marker.bindPopup(popupContent);
+                    currentMarkers.push(marker);
+                    if (closestLocation && location.title === closestLocation.title) {
+                        closestMarker = marker;
+                    }
                 });
+                if(closestMarker) {
+                    closestMarker.openPopup();
+                }
+            }
+            
+            function findNearestLocation() {
+                clearMarkers();
+                mapDescription.textContent = "Buscando sua localização...";
+
+                if ('geolocation' in navigator) {
+                    navigator.geolocation.getCurrentPosition(
+                        (position) => {
+                            const userLat = position.coords.latitude;
+                            const userLon = position.coords.longitude;
+                            const userCoords = [userLat, userLon];
+
+                            const userMarker = L.marker(userCoords, {
+                                icon: L.icon({
+                                    iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-blue.png',
+                                    shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
+                                    iconSize: [25, 41], iconAnchor: [12, 41], popupAnchor: [1, -34], shadowSize: [41, 41]
+                                })
+                            }).addTo(map).bindPopup('<b>Você está aqui!</b>').openPopup();
+                            
+                            currentMarkers.push(userMarker);
+                            map.setView(userCoords, 14);
+
+                            let closestLocation = null;
+                            let minDistance = Infinity;
+
+                            locations.forEach(location => {
+                                const distance = getDistance(userLat, userLon, location.coords[0], location.coords[1]);
+                                if (distance < minDistance) {
+                                    minDistance = distance;
+                                    closestLocation = location;
+                                }
+                            });
+                            
+                            mapDescription.textContent = `Encontramos o ponto mais próximo: ${closestLocation.title} (${minDistance.toFixed(2)} km).`;
+                            addAllMarkers(closestLocation);
+                        },
+                        (error) => {
+                            console.error("Erro ao obter localização: ", error);
+                            mapDescription.textContent = "Não foi possível obter sua localização. Mostrando todos os pontos disponíveis.";
+                            map.setView(prudenteCenter, 13);
+                            addAllMarkers();
+                        }
+                    );
+                } else {
+                    mapDescription.textContent = "Geolocalização não é suportada. Mostrando todos os pontos.";
+                    map.setView(prudenteCenter, 13);
+                    addAllMarkers();
+                }
             }
             
             function initMap() {
-                const mapElement = document.getElementById('map');
-                
-                if (mapElement) {
-                    if (map && map.remove) {
-                        map.off();
-                        map.remove();
-                        map = null;
-                    }
-                    
-                    map = L.map('map').setView(prudenteCenter, 13);
-                    
+                if(document.getElementById('map')){
+                    map = L.map('map').setView(prudenteCenter, 13); 
                     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
                         attribution: '© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
                     }).addTo(map);
 
                     addAllMarkers();
                     document.getElementById('find-location-btn').addEventListener('click', findNearestLocation);
-                    
-                    window.addEventListener('pageshow', function(event) {
-                        if (event.persisted && map) {
-                            map.invalidateSize();
-                        }
-                    });
-                }
-            }
-            
-            function findNearestLocation() {
-                if (navigator.geolocation) {
-                    navigator.geolocation.getCurrentPosition(position => {
-                        const userLat = position.coords.latitude;
-                        const userLng = position.coords.longitude;
-                        
-                        let nearest = null;
-                        let minDistance = Infinity;
-
-                        locations.forEach(location => {
-                            const distance = getDistance(userLat, userLng, location.lat, location.lng);
-                            if (distance < minDistance) {
-                                minDistance = distance;
-                                nearest = location;
-                            }
-                        });
-
-                        map.setView([userLat, userLng], 14);
-
-                        L.marker([userLat, userLng]).addTo(map)
-                            .bindPopup("<b>Sua Localização</b>")
-                            .openPopup();
-                        
-                        if (nearest) {
-                            const description = document.getElementById('map-description');
-                            description.innerHTML = `O ponto mais próximo é <b>${nearest.name}</b>, a aproximadamente <b>${minDistance.toFixed(2)} km</b> de distância.`;
-                        }
-
-                    }, error => {
-                        alert("Erro ao obter localização: " + error.message);
-                    });
-                } else {
-                    alert("Seu navegador não suporta geolocalização.");
                 }
             }
 
-            function getDistance(lat1, lon1, lat2, lon2) {
-                const R = 6371; 
-                const dLat = (lat2 - lat1) * (Math.PI / 180);
-                const dLon = (lon2 - lon1) * (Math.PI / 180);
-                const a = 
-                    Math.sin(dLat / 2) * Math.sin(dLat / 2) +
-                    Math.cos(lat1 * (Math.PI / 180)) * Math.cos(lat2 * (Math.PI / 180)) * Math.sin(dLon / 2) * Math.sin(dLon / 2);
-                const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
-                return R * c; 
-            }
+            initMap();
 
-            initMap(); 
-
-            const accessibilityToggle = document.getElementById('accessibility-toggle');
-            const accessibilityMenu = document.getElementById('accessibility-menu');
+            const accessibilityToggle = document.getElementById('accessibilityToggle');
+            const accessibilityMenu = document.getElementById('accessibilityMenu');
             const body = document.body;
-            let originalFontSize = '';
+            let originalFontSize;
 
-            if (window.getComputedStyle) {
+            if(body) {
                 originalFontSize = window.getComputedStyle(body).fontSize;
             }
 
@@ -324,6 +443,8 @@
             document.getElementById('highContrast').addEventListener('click', () => {
                 body.classList.toggle('high-contrast');
             });
+
+
 
             document.getElementById('resetAccessibility').addEventListener('click', () => {
                 body.style.fontSize = originalFontSize;
